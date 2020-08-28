@@ -1,8 +1,4 @@
-//
-// descriptor_tables.c - Initialises the GDT and IDT, and defines the 
-//                       default ISR and IRQ handler.
-//                       Based on code from Bran's kernel development tutorials.
-//                       Rewritten for JamesM's kernel development tutorials.
+// Code basé sur le tutoriel de  JamesM's kernel development tutorials.
 //
 
 #include "common.h"
@@ -23,14 +19,12 @@ gdt_ptr_t   gdt_ptr;
 idt_entry_t idt_entries[256];
 idt_ptr_t   idt_ptr;
 
-// Initialisation routine - zeroes all the interrupt service routines,
-// initialises the GDT and IDT.
+IDT.
 void init_descriptor_tables()
 {
 
-    // Initialise the global descriptor table.
     init_gdt();
-    // Initialise the interrupt descriptor table.
+   
     init_idt();
 
 }
@@ -40,12 +34,11 @@ static void init_gdt()
     gdt_ptr.limit = (sizeof(gdt_entry_t) * 5) - 1;
     gdt_ptr.base  = (u32int)&gdt_entries;
 
-    gdt_set_gate(0, 0, 0, 0, 0);                // Null segment
-    gdt_set_gate(1, 0, 0xFFFFFFFF, 0x9A, 0xCF); // Code segment
-    gdt_set_gate(2, 0, 0xFFFFFFFF, 0x92, 0xCF); // Data segment
-    gdt_set_gate(3, 0, 0xFFFFFFFF, 0xFA, 0xCF); // User mode code segment
-    gdt_set_gate(4, 0, 0xFFFFFFFF, 0xF2, 0xCF); // User mode data segment
-
+    gdt_set_gate(0, 0, 0, 0, 0);                
+    gdt_set_gate(1, 0, 0xFFFFFFFF, 0x9A, 0xCF); 
+    gdt_set_gate(2, 0, 0xFFFFFFFF, 0x92, 0xCF); 
+    gdt_set_gate(3, 0, 0xFFFFFFFF, 0xFA, 0xCF); 
+    gdt_set_gate(4, 0, 0xFFFFFFFF, 0xF2, 0xCF); 
     gdt_flush((u32int)&gdt_ptr);
 }
 
