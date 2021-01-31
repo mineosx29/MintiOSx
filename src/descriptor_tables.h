@@ -1,7 +1,4 @@
-// 
-// Basée sur le code de Bran's kernel development tutorials.
-//                       JamesM's kernel development tutorials.
-//
+
 
 #include "common.h"
 

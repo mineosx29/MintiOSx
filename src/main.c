@@ -1,5 +1,4 @@
-// Basée sur le tutoriel de 
-//  JamesM's tutorials <www.jamesmolloy.co.uk>
+
 
 #include "monitor.h"
 #include "descriptor_tables.h"

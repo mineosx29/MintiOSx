@@ -1,4 +1,3 @@
-// monitor.c --Developpement basée sur le tutoriel de Bran's kernel development tutorials, et JamesM's kernel tutorials.
 
 
 #include "monitor.h"

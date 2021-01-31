@@ -1,5 +1,3 @@
-// Code basé sur le tutoriel de  JamesM's kernel development tutorials.
-//
 
 #include "common.h"
 #include "descriptor_tables.h"
