@@ -19,7 +19,7 @@ gdt_ptr_t   gdt_ptr;
 idt_entry_t idt_entries[256];
 idt_ptr_t   idt_ptr;
 
-IDT.
+
 void init_descriptor_tables()
 {
 
