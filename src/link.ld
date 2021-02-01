@@ -1,25 +1,31 @@
 
-ENTRY(start)
+ENTRY(_start)
 
 SECTIONS
 
-  
+{
+        . = 1M;
 
-  .text : ALIGN(0x1000) {
-_TEXT_START_ = .;
-    *(.text)
-_TEXT_END_ = .;
-  }
-
-  .data : ALIGN(0x1000) {
-_DATA_START_ = .;
-    *(.data)
-_DATA_END_ = .;
-  }
-
-  .bss : ALIGN(0x1000) {
-_BSS_START_ = .;
-    *(.bss)
-_BSS_END_ = .;
-  }
+.text BLOCK(4K) : ALIGN(4K)
+	{
+		*(.mboot)
+		*(.text)
+	}
+ 
+	.rodata BLOCK(4K) : ALIGN(4K)
+	{
+		*(.rodata)
+	}
+ 
+	.data BLOCK(4K) : ALIGN(4K)
+	{
+		*(.data)
+	}
+ 
+	.bss BLOCK(4K) : ALIGN(4K)
+	{
+		*(COMMON)
+		*(.bss)
+	}
+ 
 }
